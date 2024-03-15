@@ -1,17 +1,25 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-let mongoose=    require('mongoose')
-      let ratingSchema=   new  mongoose.Schema({
-          user_id:[{
-            type: mongoose.Schema.Types.ObjectId,
-            ref:'User'
+// Define the rating schema
+const ratingSchema = new Schema({
+  orderId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Order', // Reference to the Order model
+    required: true
+  },
+  productId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Product', // Reference to the Product model
+    required: true
+  },
+  rating: {
+    type: Number,
+    required: true
+  }
+});
 
-          }],
-          rating:{
-            type:Number
-          } 
+// Create the Rating model
+const Rating = mongoose.model('Rating', ratingSchema);
 
-      })
-
-     let Rating=    mongoose.model('Rating',ratingSchema)
-
-     module.exports=Rating
+module.exports = Rating;

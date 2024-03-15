@@ -11,6 +11,7 @@ let userRoutes = require('./routes/user')
 let restraurantRoutes = require('./routes/restraurant')
 let menuRoutes = require('./routes/menu')
 let productRoutes = require('./routes/Products')
+let ratingRoutes =require('./routes/rating')
 let paymentMethod =require('./routes/payment')
 mongoose.connect('mongodb://127.0.0.1:27017/zomato').
     then(() => {
@@ -27,6 +28,8 @@ app.use('/api', restraurantRoutes)
 app.use('/api', productRoutes)
 app.use('/api', menuRoutes)
 app.use('/api', paymentMethod)
+app.use('/api', ratingRoutes)
+
 
 
 

@@ -2,13 +2,12 @@
 const express = require('express');
 const router = express.Router();
 const stripe = require('stripe')('sk_test_51Os8E4SEhF2ghQp3hf7N5NJAQn2DceXv7fuYaVIPtkP97tOxwXPbg1Fe9enZfhx4Px5XirD0v7aFrb4iS8SMxHC200z1EES8ji');
-
 const Order = require('../models/Order');
 let Restraurant=     require('../models/restraurant')
 let Product=     require('../models/Products')
 router.post("/payment", async (req, res) => {
-  const { products, restaurant } = req.body;
-  console.log(req.body, 'rrr');
+  const { products ,restaurant} = req.body;
+ 
 
   const lineItems = products.map((product) => ({
     price_data: {
